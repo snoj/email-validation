@@ -1,0 +1,11 @@
+{
+  "name": "email-validation",
+  "version": "0.0.1",
+  "description": "Email validation that follows the specs.",
+  "keywords": [],
+  "author": "Josh Erickson <josh@snoj.us>",
+  "repository": { "type": "git", "url": "git://github.com/snoj/email-validation.git" },
+  "dependencies": {},
+  "devDependencies": {},
+  "main": "index"
+}
