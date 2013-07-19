@@ -7,6 +7,18 @@ Node.JS email validation that follows the specs.
 ```
 var email = require('email-validation');
 assert.ok(email.valid("hi@mom.example.com"));
+
+//get error messages!
+assert.ok(email.valid("hi+spam@example.com", function(err) {
+  if(err) console.log(err);
+});
+
+//Throw exceptions around!
+try {
+  assert.ok(email.valid("lol+this.is.fun@tld", true));
+} catch (err) {
+  console.log(err);
+}
 ```
 
 ## License
