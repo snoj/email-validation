@@ -1,6 +1,6 @@
 {
   "name": "email-validation",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Email validation that follows the specs.",
   "keywords": [],
   "author": "Josh Erickson <josh@snoj.us>",

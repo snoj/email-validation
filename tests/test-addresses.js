@@ -1,6 +1,26 @@
 var email = require('../index');
 var assert = require('assert');
 
+//parsing good
+var parsegood = email.parse("niceandsimple@example.com");
+console.log("niceandsimple@example.com");
+console.log(parsegood);
+assert.equal(parsegood['user'], 'niceandsimple');
+assert.equal(parsegood['domain'], 'example.com');
+
+parsegood = email.parse('"@somethingsomething"@example.com');
+console.log('"@somethingsomething"@example.com');
+console.log(parsegood);
+assert.equal(parsegood['user'], '"@somethingsomething"');
+assert.equal(parsegood['domain'], 'example.com');
+
+//parsing bad
+var parsebad = email.parse("badip@[827.750.304.001]");
+assert.equal(parsebad, false);
+assert.equal(typeof parsebad['user'], 'undefined');
+assert.equal(typeof parsebad['domain'], 'undefined');
+
+
 //good
 assert.ok(email.valid('email@example.com'));
 assert.ok(email.valid('email@example'));
