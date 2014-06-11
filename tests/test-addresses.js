@@ -3,14 +3,10 @@ var assert = require('assert');
 
 //parsing good
 var parsegood = email.parse("niceandsimple@example.com");
-console.log("niceandsimple@example.com");
-console.log(parsegood);
 assert.equal(parsegood['user'], 'niceandsimple');
 assert.equal(parsegood['domain'], 'example.com');
 
 parsegood = email.parse('"@somethingsomething"@example.com');
-console.log('"@somethingsomething"@example.com');
-console.log(parsegood);
 assert.equal(parsegood['user'], '"@somethingsomething"');
 assert.equal(parsegood['domain'], 'example.com');
 
@@ -27,13 +23,14 @@ assert.ok(email.valid('email@example'));
 assert.ok(email.valid('email+sometag@example.com'));
 assert.ok(email.valid('"@somethingsomething"@example.com'));
 assert.equal(email.valid('"email@example.com'), false);
-assert.equal(email.valid('"email@example.com'), false);
+assert.ok(email.valid('one.two@one-two.com'));
 
 //bad
 assert.equal(email.valid('badip@[827.750.304.001]'), false);
 assert.equal(email.valid('badip@[827.750.304.001'), false);
 assert.equal(email.valid('bad@ThisHostAddressSpaceIsGreaterThanSixtyThreeCharactersLetsSeeHowManyICanFitInHereWithoutDestroyingTheWorld.com'), false);
 assert.equal(email.valid('bad@ThisAddressIsGreaterThanTwoHundredAndFiftyThreeCharactersLetsSeeHowManyICanFitInHereWithoutDestroyingTheWorld.com.Unfortunatly.we.were.not.quite.there.yet.but.we.getting.closer.by.the.minute.I.assure.you.we.are.almost.there.dot.some.new.top.level.domain.com.us.tz.kosher'), false);
+assert.equal(email.valid('one.two@-one-two.com'), false);
 
 //shamelessly copied from http://en.wikipedia.org/wiki/Email_address
 assert.ok(email.valid('niceandsimple@example.com'));
