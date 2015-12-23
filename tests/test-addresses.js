@@ -16,6 +16,10 @@ assert.equal(parsebad, false);
 assert.equal(typeof parsebad['user'], 'undefined');
 assert.equal(typeof parsebad['domain'], 'undefined');
 
+parsebad = email.parse("a@");
+assert.equal(parsebad, false);
+assert.equal(typeof parsebad['user'], 'undefined');
+assert.equal(typeof parsebad['domain'], 'undefined');
 
 //good
 assert.ok(email.valid('email@example.com'));
@@ -31,6 +35,7 @@ assert.equal(email.valid('badip@[827.750.304.001'), false);
 assert.equal(email.valid('bad@ThisHostAddressSpaceIsGreaterThanSixtyThreeCharactersLetsSeeHowManyICanFitInHereWithoutDestroyingTheWorld.com'), false);
 assert.equal(email.valid('bad@ThisAddressIsGreaterThanTwoHundredAndFiftyThreeCharactersLetsSeeHowManyICanFitInHereWithoutDestroyingTheWorld.com.Unfortunatly.we.were.not.quite.there.yet.but.we.getting.closer.by.the.minute.I.assure.you.we.are.almost.there.dot.some.new.top.level.domain.com.us.tz.kosher'), false);
 assert.equal(email.valid('one.two@-one-two.com'), false);
+assert.equal(email.valid('a@'), false);
 
 //shamelessly copied from http://en.wikipedia.org/wiki/Email_address
 assert.ok(email.valid('niceandsimple@example.com'));
