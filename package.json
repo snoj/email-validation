@@ -1,8 +1,8 @@
 {
   "name": "email-validation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Email validation that follows the specs.",
-  "keywords": [],
+  "keywords": ["email", "address", "validation", "RFC 5322", "RFC 5321", "RFC 3696"],
   "author": "Josh Erickson <josh@snoj.us>",
   "repository": { "type": "git", "url": "git://github.com/snoj/email-validation.git" },
   "dependencies": {},
