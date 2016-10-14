@@ -21,6 +21,11 @@ assert.equal(parsebad, false);
 assert.equal(typeof parsebad['user'], 'undefined');
 assert.equal(typeof parsebad['domain'], 'undefined');
 
+parsebad = email.parse("@a");
+assert.equal(parsebad, false);
+assert.equal(typeof parsebad['user'], 'undefined');
+assert.equal(typeof parsebad['domain'], 'undefined');
+
 //good
 assert.ok(email.valid('email@example.com'));
 assert.ok(email.valid('email@example'));
